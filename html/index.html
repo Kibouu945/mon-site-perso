@@ -29,10 +29,12 @@
   <link rel="stylesheet" type="text/css" href="../assets/css/virtual.css">
   
   <link rel="stylesheet" type="text/css" href="../assets/css/topbar.virtual.css">
+
+  
 </head>
 <body class="theme-red">
   
-  <!-- Back to top button -->
+  <!-- Fleche pour remonter -->
   <div class="btn-back_to_top">
     <span class="ti-arrow-up"></span>
   </div>
@@ -76,7 +78,7 @@
     <!-- Navbar -->
     <div class="navbar navbar-expand-lg navbar-dark sticky" data-offset="500">
       <div class="container">
-        <a href="" class="navbar-brand">V-Folio</a>
+        <a href="" class="navbar-brand">RT</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#main-navbar" aria-expanded="true">
           <span class="ti-menu"></span>
         </button>
@@ -86,7 +88,7 @@
               <a href="#home" class="nav-link" data-animate="scrolling">Home</a>
             </li>
             <li class="nav-item">
-              <a href="#about" class="nav-link" data-animate="scrolling">About</a>
+              <a href="#about" class="nav-link" data-animate="scrolling">A Propos</a>
             </li>
             <li class="nav-item">
               <a href="#portfolio" class="nav-link" data-animate="scrolling">Portfolio</a>
@@ -95,13 +97,11 @@
               <a href="#blog" class="nav-link" data-animate="scrolling">Blog</a>
             </li>
             <li class="nav-item">
-              <a href="#contact" class="nav-link" data-animate="scrolling">Contact</a>
+              <a href="#contact" class="nav-link" data-animate="scrolling">Contactez-Moi</a>
             </li>
           </ul>
           <ul class="nav ml-auto">
-            <li class="nav-item">
-              <button class="btn btn-fab btn-theme no-shadow">En</button>
-            </li>
+            <!-- Vide -->
           </ul>
         </div>
       </div>
@@ -109,10 +109,10 @@
     <!-- Caption header -->
     <div class="caption-header text-center wow zoomInDown">
       <h5 class="fw-normal">Welcome</h5>
-      <h1 class="fw-light mb-4">I'm <b class="fg-theme">Stephen</b> Doe</h1>
-      <div class="badge">UI/UX & Web Designer</div>
+      <h1 class="fw-light mb-4">I'm <b class="fg-theme">Rokib</b>TADJOU</h1>
+      <div class="badge">Full Stack Dev</div>
     </div> <!-- End Caption header -->
-    <div class="floating-button"><span class="ti-mouse"></span></div>
+    <!-- <div class="floating-button"><span class="ti-mouse"></span></div> -->
   </div>
   
   <div class="vg-page page-about" id="about">
@@ -124,21 +124,30 @@
           </div>
         </div>
         <div class="col-lg-6 offset-lg-1 wow fadeInRight">
-          <h1 class="fw-light">Stephen Doe</h1>
-          <h5 class="fg-theme mb-3">UI/UX & Web Designer</h5>
-          <p class="text-muted">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form but the majority have suffered alteration in some</p>
+          <h1 class="fw-light">Rokib TADJOU</h1>
+          <h5 class="fg-theme mb-3">Full Stack Dev</h5>
+          <p class="text-muted">
+            Titulaire d'une Licence en Architecture Logicielle , j'ai également des compétences
+            notamment en événementiel et dans l'animation commerciale. Ces différentes expériences
+            ont développé mon sens de communication , d'observation et ma capacité d'adaptation,
+            primordiale pour travailler en équipe. Je suis prêt à mettre mes compétences au service de
+            l’atteinte de nos objectifs.
+
+
+          </p>
           <ul class="theme-list">
-            <li><b>From:</b> Texas, US</li>
-            <li><b>Lives In:</b> Texas, US</li>
-            <li><b>Age:</b> 25</li>
-            <li><b>Gender:</b> Male</li>
+            <li><b>De:</b> Cotonou , Benin</li>
+            <li><b>Adresse: </b> Île-de-France</li>
+            <li><b>Age:</b> 21</li>
+            <li><b>Genre:</b> Male</li>
           </ul>
-          <button class="btn btn-theme-outline">Download CV</button>
+          <button type ="button" class="btn btn-theme-outline" id="GetFile">Télécharger mon CV</button>
+
         </div>
       </div>
     </div>
     <div class="container py-5">
-      <h1 class="text-center fw-normal wow fadeIn">My Skills</h1>
+      <h1 class="text-center fw-normal wow fadeIn">Mes Compétences</h1>
       <div class="row py-3">
         <div class="col-md-6">
           <div class="px-lg-3">
@@ -668,6 +677,8 @@
   
   
   <script src="../assets/js/jquery-3.5.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     
   <script src="../assets/js/bootstrap.bundle.min.js"></script>
     
@@ -693,5 +704,26 @@
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIA_zqjFMsJM_sxP9-6Pde5vVCTyJmUHM&callback=initMap"></script>
   
+  <script>
+    $('#GetFile').on('click', function () {
+        $.ajax({
+            url: 'https://pdfhost.io/v/GtzQ0Mpnpx_CV_ROKIB_TADJOU',
+            method: 'GET',
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data) {
+                var a = document.createElement('a');
+                var url = window.URL.createObjectURL(data);
+                a.href = url;
+                a.download = 'CV_RT.pdf';
+                document.body.append(a);
+                a.click();
+                a.remove();
+                window.URL.revokeObjectURL(url);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
